@@ -1,0 +1,41 @@
+<h1>My Friends</h1>
+<div class="search-area py-3">
+
+  <%= form_with(url: search_friend_path, local: false, method: :get) do |form| %>
+    <%= form.label :friend, class: "form-label" %>
+    <%= form.text_field :friend, class: "form-control", id: "exampleDataList", placeholder: "Type to search..." %>
+    <%= form.submit "Search", class: "btn btn-success my-2" %>
+  <%end%>
+
+</div>
+
+<div id="friend-result">
+
+</div>
+
+
+<% if @friends.any? %>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Email</th>
+      <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= friend.email %></td>
+        <td><%= link_to "Unfollow", friend_path(friend), class: "btn btn-warning", method: :delete %></td>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
+<%end%>
+
+
+
+
+
+
+

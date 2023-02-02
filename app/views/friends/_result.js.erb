@@ -1,0 +1,17 @@
+const result = `
+  <% if @friend %>
+    <h5 class="my-3">Result </h5>
+    <div class="card mb-5" style="width: 800px">
+        <div class="card-body bg-secondary">
+            <span class="card-subtitle mb-2 text-white mx-5">Email: <%= @friend.email %></span>
+            <%= link_to "Follow", friends_path(user:current_user, friend:@friend), class: "btn btn-warning" %>
+        </div>
+    </div>
+  <%else%>
+    <div class="alert alert-warning">Stock not found</div>
+  <%end%>
+`
+
+
+
+document.querySelector("#friend-result").innerHTML = result

@@ -1,0 +1,21 @@
+const result = `
+  <% if @stock %>
+    <h5 class="my-3">Result </h5>
+    <div class="card mb-5" style="width: 800px">
+        <div class="card-body bg-secondary">
+            <span class="card-subtitle mb-2 text-white mx-5">Symbol: <%= @stock.ticker %></span>
+            <span class="card-subtitle mb-2 text-white mx-5">Name: <%= @stock.name %></span>
+            <span class="card-subtitle mb-2 text-white mx-5">Price: <%= @stock.last_price %></span>
+            <%= link_to "Add to portfolio", user_stocks_path(user:current_user, stock:@stock), class: "btn btn-warning" %>
+        </div>
+    </div>
+  <%else%>
+    <div class="alert alert-warning">Stock not found</div>
+  <%end%>
+`
+
+
+
+document.querySelector("#result").innerHTML = result
+
+//document.querySelector("#result").innerHTML = "<%#= j render partial:"users/result.html" %>"
